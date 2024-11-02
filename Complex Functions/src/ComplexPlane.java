@@ -67,12 +67,14 @@ public class ComplexPlane extends JPanel implements /*KeyListener, */MouseListen
             for (int j = -jBounds; j <= jBounds; j++) {
                 ComplexNum current = new ComplexNum(i, j);
 
-                ComplexNum newNum = current.power(2);
-//                ComplexNum newNum = current.power(3);
-//                ComplexNum newNum = current.power(1d/2d);
-//                ComplexNum newNum = current.power(4d/5d);
-//                ComplexNum newNum = current.multiply(new ComplexNum(4, 2));
-//                ComplexNum newNum = current.multiply(new ComplexNum(-2, -.7));
+                //comment/uncomment lines below to choose between different functions
+                
+                ComplexNum newNum = current.power(2); // z=z^2
+//                ComplexNum newNum = current.power(3); // z=z^3
+//                ComplexNum newNum = current.power(1d/2d); // z=sqrt(z)
+//                ComplexNum newNum = current.power(4d/5d); // z=z^4/5
+//                ComplexNum newNum = current.multiply(new ComplexNum(4, 2)); // z=z*(4+2i)
+//                ComplexNum newNum = current.multiply(new ComplexNum(-2, -.7)); // z=z*(-2-.7i)
 
                 points[i + iBounds][j + jBounds] = current;
                 shifts[i + iBounds][j + jBounds] = new double[]{(newNum.real - current.real) / frames, (newNum.imaginary - current.imaginary) / frames};
